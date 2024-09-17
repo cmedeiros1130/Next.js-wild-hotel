@@ -13,9 +13,11 @@ const cabin = {
     "https://dclaevazetcjjkrzczpc.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg",
 };
 
-export default function Page() {
+export default function Page({ params }) {
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
+
+  console.log(params);
 
   return (
     <div className="max-w-6xl mx-auto mt-8">
