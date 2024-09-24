@@ -2,14 +2,13 @@ import { Suspense } from "react";
 import CabinList from "../components/CabinList";
 import Spinner from "../components/Spinner";
 import Filter from "../components/Filter";
+import ReservationReminder from "../components/ReservationReminder";
 
 export const metadata = {
   title: "Cabins",
 };
 
 export default function Page({ searchParams }) {
-  console.log(searchParams);
-
   const filter = searchParams?.capacity ?? "all";
 
   return (
@@ -31,6 +30,7 @@ export default function Page({ searchParams }) {
 
       <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );

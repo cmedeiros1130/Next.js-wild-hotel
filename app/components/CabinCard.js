@@ -5,11 +5,18 @@ import Link from "next/link";
 function CabinCard({ cabin }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
+  // Base URL for Supabase storage bucket
+  const baseUrl =
+    "https://awvbbpsurscuiweyipyi.supabase.co/storage/v1/object/public/cabin-images/";
+
+  // Construct the full image URL by appending the image path
+  const imageUrl = `${baseUrl}${image}`;
+
   return (
     <div className="flex border-primary-800 border">
       <div className="flex-1 relative">
         <Image
-          src={image}
+          src={imageUrl}
           fill
           alt={`Cabin ${name}`}
           className="object-cover border-r border-primary-800"
